@@ -1,0 +1,16 @@
+Host ansible-otameshi-bastion
+  HostName 127.0.0.1
+  User vagrant
+  Port 2301
+  IdentityFile ~/.vagrant.d/insecure_private_key
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+
+Host 192.168.130.*
+  HostName 192.168.130.101
+  User vagrant
+  Port 22
+  IdentityFile ~/.vagrant.d/insecure_private_key
+  ProxyCommand ssh ansible-otameshi-bastion -W %h:%p
+  StrictHostKeyChecking no
+  PasswordAuthentication no
